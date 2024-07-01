@@ -25,7 +25,16 @@ const ParticlesComponent = (props) => {
   const particlesLoaded = (container) => {
     console.log(container);
   };
-
+  var width = window.innerWidth;
+  var numberParticles;
+  var opct;
+  if (width <= 700) {
+    numberParticles = 225;
+    opct = 0.35;
+  } else {
+    numberParticles = 150;
+    opct = 0.2;
+  }
   const options = useMemo(
     () => ({
       background: {
@@ -66,7 +75,7 @@ const ParticlesComponent = (props) => {
           color: "#ccc",
           distance: 150,
           enable: true,
-          opacity: 0.2,
+          opacity: opct,
           width: 1,
         },
         move: {
@@ -84,10 +93,11 @@ const ParticlesComponent = (props) => {
             enable: true,
             area: 200,
           },
-          value: 150,
+
+          value: numberParticles,
         },
         opacity: {
-          value: 1.0,
+          value: 1,
         },
         shape: {
           type: "polygon",
@@ -98,7 +108,7 @@ const ParticlesComponent = (props) => {
       },
       detectRetina: true,
     }),
-    []
+    [numberParticles, opct]
   );
 
   return <Particles id={props.id} init={particlesLoaded} options={options} />;
