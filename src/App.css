@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
 }
 
 #particles canvas {
@@ -24,6 +25,7 @@
   flex-direction: column;
   color: #fff;
   font-size: 2.7rem;
+  height: 100vh;
 }
 
 .container-info > h1 {
@@ -41,9 +43,19 @@
   padding-right: 20px;
 }
 
+.info-me {
+  height: 100vh;
+  border: 1px solid white;
+}
+
+#photo-name > img {
+  width: 100px;
+  height: 100px;
+}
+
 @media (max-width: 700px) {
   .container-fullscreen {
-    height: 95vh;
+    height: 90vh;
   }
   .container-info {
     position: fixed;
