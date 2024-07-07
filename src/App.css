@@ -13,6 +13,10 @@
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 #particles canvas {
   z-index: -2;
   position: absolute;
@@ -57,11 +61,33 @@
 #about-me {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tag {
+  font-family: "Poppins";
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.icon {
+  padding-right: 20px;
 }
 
 #photo-name > img {
+  margin-left: -30px;
   width: 300px;
   height: 300px;
+  margin-bottom: 30px;
+}
+
+#others-tags {
+  margin-left: -2.5rem;
+}
+
+#others-tags span {
+  position: absolute;
 }
 
 #info-general {
