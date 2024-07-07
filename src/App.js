@@ -14,14 +14,19 @@ function App() {
       </div>
 
       <div className="info-me">
-        <section id="photo-name">
-          <img src={logophoto} alt="logo" />
+        <section id="info-general">
+          <section id="photo-name">
+            <img src={logophoto} alt="logo" />
+          </section>
+          <section id="about-me">
+            <h2 id="tag">Leonardo Kremer - Full Stack Developer</h2>
+            <h3 id="others-tags">
+              Java, React, JavaScript, Html, Css, Sass, MySQL, SpringBoot
+            </h3>
+          </section>
         </section>
-        <section id="about-me">
-          <h2 id="tag">Full Stack Developer</h2>
-          <h3 id="others-tags">
-            Java, React, JavaScript, Html, Css, Sass, MySQL, SpringBoot
-          </h3>
+        <section id="info-personal">
+          <h1>Olá, sou estudante do curso técnico de T.I</h1>
         </section>
       </div>
     </div>
