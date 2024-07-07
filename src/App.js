@@ -26,7 +26,7 @@ function App() {
           </section>
         </section>
         <section id="info-personal">
-          <h1>Olá, sou estudante do curso técnico de T.I &</h1>
+          <h1>Olá, sou estudante do curso técnico de T.I </h1>
         </section>
       </div>
     </div>
