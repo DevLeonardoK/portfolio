@@ -25,91 +25,78 @@ const ParticlesComponent = (props) => {
   const particlesLoaded = (container) => {
     console.log(container);
   };
-  var width = window.innerWidth;
-  var numberParticles;
-  var opct;
-  if (width <= 700) {
-    numberParticles = 225;
-    opct = 0.35;
-  } else {
-    numberParticles = 150;
-    opct = 0.2;
-  }
-  const options = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "#000",
+  const options = useMemo(() => ({
+    background: {
+      color: {
+        value: "#000",
+      },
+    },
+    fpsLimit: 200,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        onHover: {
+          enable: true,
+          mode: "repulse",
         },
       },
-      fpsLimit: 200,
-      interactivity: {
-        events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
+      modes: {
+        repulse: {
+          distance: 100,
         },
-        modes: {
-          repulse: {
-            distance: 100,
-          },
-          push: {
-            distance: 130,
-            duration: 15,
-          },
-          grab: {
-            distance: 100,
-          },
+        push: {
+          distance: 130,
+          duration: 15,
+        },
+        grab: {
+          distance: 100,
         },
       },
-      particles: {
-        color: {
-          value: "none",
+    },
+    particles: {
+      color: {
+        value: "none",
+      },
+      links: {
+        color: "#ccc",
+        distance: 150,
+        enable: true,
+        opacity: 0.2,
+        width: 1,
+      },
+      move: {
+        direction: "top",
+        enable: true,
+        outModes: {
+          default: "out",
         },
-        links: {
-          color: "#ccc",
-          distance: 150,
+        random: true,
+        speed: 7,
+        straight: false,
+      },
+      number: {
+        density: {
           enable: true,
-          opacity: opct,
-          width: 1,
+          area: 200,
         },
-        move: {
-          direction: "top",
-          enable: true,
-          outModes: {
-            default: "out",
-          },
-          random: true,
-          speed: 7,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-            area: 200,
-          },
 
-          value: numberParticles,
-        },
-        opacity: {
-          value: 1,
-        },
-        shape: {
-          type: "polygon",
-        },
-        size: {
-          value: { min: 1, max: 3 },
-        },
+        value: 200,
       },
-      detectRetina: true,
-    }),
-    [numberParticles, opct]
-  );
+      opacity: {
+        value: 1,
+      },
+      shape: {
+        type: "polygon",
+      },
+      size: {
+        value: { min: 1, max: 3 },
+      },
+    },
+    detectRetina: true,
+  }));
 
   return <Particles id={props.id} init={particlesLoaded} options={options} />;
 };
