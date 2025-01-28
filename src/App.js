@@ -1,17 +1,9 @@
 import ParticlesComponent from "./components/particles";
 import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDatabase } from "@fortawesome/free-solid-svg-icons";
-import {
-  faJava,
-  faReact,
-  faHtml5,
-  faCss3,
-  faSass,
-  faJs,
-} from "@fortawesome/free-brands-svg-icons";
+
 import { WelcomeScreen } from "./components/WelcomeScreen";
 import { AboutPage } from "./components/AboutPage";
+import { Skills } from "./components/Skills";
 
 function App() {
   return (
@@ -19,6 +11,7 @@ function App() {
       <ParticlesComponent id="particles"></ParticlesComponent>
       <WelcomeScreen></WelcomeScreen>
       <AboutPage></AboutPage>
+      <Skills></Skills>
     </>
   );
 }

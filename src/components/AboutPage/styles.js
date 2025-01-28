@@ -8,7 +8,6 @@ export const MainScreen = styled.section`
   flex-direction: column;
   height: 100vh;
   gap: 2rem;
-  z-index: -1;
 `;
 
 export const TextAbout = styled.h1`
