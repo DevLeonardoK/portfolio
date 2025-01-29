@@ -4,6 +4,7 @@ import "./App.css";
 import { WelcomeScreen } from "./components/WelcomeScreen";
 import { AboutPage } from "./components/AboutPage";
 import { Skills } from "./components/Skills";
+import { ProjectsPage } from "./components/ProjectsPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <WelcomeScreen></WelcomeScreen>
       <AboutPage></AboutPage>
       <Skills></Skills>
+      <ProjectsPage></ProjectsPage>
     </>
   );
 }
