@@ -8,21 +8,40 @@
 <meta name="author" content="Leonardo Kremer">
 <meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://devleonardok.github.io/portfolio/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Leonardo Kremer — Engenheiro de Dados">
 <meta property="og:description" content="Transformo processos custosos em pipelines enxutos. Python, Spark, Airflow, Kafka, GCP e Azure.">
 <meta property="og:locale" content="pt_BR">
-<!-- TODO: quando o site estiver publicado, preencha as duas linhas abaixo com a URL final
-     (ex.: https://devleonardok.github.io/portfolio/) e uma imagem 1200x630 em assets/.
-<meta property="og:url" content="">
-<meta property="og:image" content="">
--->
+<meta property="og:url" content="https://devleonardok.github.io/portfolio/">
+<meta property="og:image" content="https://devleonardok.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://devleonardok.github.io/portfolio/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leonardo Kremer — Engenheiro de Dados">
+<meta name="twitter:description" content="Transformo processos custosos em pipelines enxutos. Python, Spark, Airflow, Kafka, GCP e Azure.">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preload" href="assets/fonts/archivo-narrow-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Leonardo Kremer",
+  "url": "https://devleonardok.github.io/portfolio/",
+  "jobTitle": "Engenheiro de Dados",
+  "knowsAbout": ["Python", "Apache Spark", "Apache Airflow", "Apache Kafka", "Google Cloud Platform", "Microsoft Azure", "SQL", "PostgreSQL"],
+  "sameAs": [
+    "https://github.com/DevLeonardoK",
+    "https://www.linkedin.com/in/devleonardok"
+  ]
+}
+</script>
 
 <!-- Aplica o tema salvo antes da primeira pintura, para não piscar. -->
 <script>
@@ -47,7 +66,7 @@
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
       </nav>
-      <button class="nav-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+      <button class="nav-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
         <span id="theme-label">Tema</span>
       </button>
       <button class="nav-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>

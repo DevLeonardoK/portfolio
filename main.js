@@ -19,9 +19,11 @@
   }
 
   function paintLabel() {
+    var escuro = currentTheme() === "dark";
     if (themeLabel) {
-      themeLabel.textContent = "Tema: " + (currentTheme() === "dark" ? "escuro" : "claro");
+      themeLabel.textContent = "Tema: " + (escuro ? "escuro" : "claro");
     }
+    if (themeBtn) themeBtn.setAttribute("aria-pressed", String(escuro));
   }
 
   if (themeBtn) {
