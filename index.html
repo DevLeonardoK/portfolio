@@ -138,51 +138,48 @@
   </section>
 
   <!-- ===================== 02 STACK ===================== -->
-  <!--
-    NOTA: nível é auto-declarado. Eu inferi cada linha a partir da evidência pública
-    (bio do GitHub + os projetos deste portfólio). Ajuste livremente:
-    Avançado | Intermediário | Básico  →  troque o texto E o data-nivel (3, 2 ou 1).
-  -->
   <section class="sec pad rule-1" id="stack">
     <div class="sec-head">
       <span class="mono">02</span>
-      <h2 class="display">Stack &amp; nível</h2>
+      <h2 class="display">Stack</h2>
     </div>
 
-    <div class="table-scroll">
-      <table class="tb">
-        <caption class="sr-only">Tecnologias por categoria e nível de domínio</caption>
-        <thead>
-          <tr>
-            <th scope="col">Categoria</th>
-            <th scope="col">Tecnologia</th>
-            <th scope="col">Nível</th>
-            <th scope="col"><span class="sr-only">Escala</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="cat">Linguagens &amp; processamento</td><td>Python</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>PySpark / Apache Spark</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>SQL</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>pandas</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+    <div class="stack-grid">
+      <div class="stack-group reveal">
+        <h3 class="stack-cat mono">Programação &amp; POO</h3>
+        <ul class="tags mono">
+          <li>Python</li><li>SQL</li><li>pandas</li>
+        </ul>
+      </div>
 
-          <tr><td class="cat">Orquestração &amp; streaming</td><td>Apache Airflow</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>Docker / Docker Compose</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>Apache Kafka (KRaft)</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+      <div class="stack-group reveal">
+        <h3 class="stack-cat mono">Processamento &amp; streaming</h3>
+        <ul class="tags mono">
+          <li>PySpark / Apache Spark</li><li>Apache Kafka (KRaft)</li>
+        </ul>
+      </div>
 
-          <tr><td class="cat">Nuvem</td><td>Google Cloud (GCS · BigQuery)</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>Azure</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
-          <tr><td class="cat"></td><td>AWS</td><td class="cat">Básico</td><td class="bar-cell" data-nivel="1"><span class="bar" aria-hidden="true"><i class="on"></i><i></i><i></i></span></td></tr>
-          <tr><td class="cat"></td><td>Oracle Cloud (OCI)</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+      <div class="stack-group reveal">
+        <h3 class="stack-cat mono">Agendamento &amp; orquestração</h3>
+        <ul class="tags mono">
+          <li>Apache Airflow</li><li>Docker / Docker Compose</li>
+        </ul>
+      </div>
 
-          <tr><td class="cat">Dados &amp; storage</td><td>Arquitetura Medallion</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>PostgreSQL</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
-          <tr><td class="cat"></td><td>Databricks</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
-          <tr><td class="cat"></td><td>MinIO / S3</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
-        </tbody>
-      </table>
+      <div class="stack-group reveal">
+        <h3 class="stack-cat mono">Cloud</h3>
+        <ul class="tags mono">
+          <li>Google Cloud (GCS · BigQuery)</li><li>Azure</li><li>AWS</li><li>Oracle Cloud (OCI)</li>
+        </ul>
+      </div>
+
+      <div class="stack-group reveal">
+        <h3 class="stack-cat mono">Dados &amp; storage</h3>
+        <ul class="tags mono">
+          <li>Arquitetura Medallion</li><li>PostgreSQL</li><li>Databricks</li><li>MinIO / S3</li>
+        </ul>
+      </div>
     </div>
-    <p class="legend mono">Escala de três posições: básico · intermediário · avançado</p>
   </section>
 
   <!-- ===================== 03 PROJETOS ===================== -->
