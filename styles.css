@@ -292,6 +292,8 @@ a { color: inherit; }
 }
 
 .h1 mark {
+  display: inline-block;
+  margin-top: 0.18em;
   background: var(--acc);
   color: var(--acc-ink);
   font-weight: 800;
