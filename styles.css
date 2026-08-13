@@ -52,6 +52,21 @@
   --gut: clamp(1rem, 4vw, 2.75rem);
 }
 
+/* -----------------------------------------------------------------------
+   Escala de breakpoints — mobile-first (min-width).
+   Base do arquivo = celular. Cada @media abaixo liga a partir do valor dado.
+     --bp-md  768px  → tablet / notebook de tela pequena
+     --bp-lg  1024px → notebook maior / monitor
+     --bp-xl  1280px → monitor grande (mesmo valor de --max, acima disso é
+                       só espaço em branco nas laterais, o layout não muda)
+   Valores alinhados ao conjunto mais usado no mercado (480/768/1024/1280/1536,
+   ver BrowserStack "CSS and media query breakpoints") e à escala do Tailwind
+   CSS (sm 640 · md 768 · lg 1024 · xl 1280 · 2xl 1536), hoje a referência de
+   fato para quem não parte de device-specific breakpoints. Como não há
+   variável nativa para usar dentro de @media, os números ficam repetidos
+   inline — documentados aqui para não virarem "números mágicos".
+   ----------------------------------------------------------------------- */
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #101010;
@@ -197,10 +212,19 @@ a { color: inherit; }
   align-items: stretch;
 }
 
+/* Mobile: menu recolhido em painel, aberto via .open no JS. */
 .nav-links {
-  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: none;
+  flex-direction: column;
   align-items: stretch;
+  background: var(--bg);
+  border-bottom: 3px solid var(--rule);
 }
+.nav-links.open { display: flex; }
 
 .nav-links a {
   display: flex;
@@ -210,8 +234,8 @@ a { color: inherit; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.7rem 0.85rem;
-  border-left: 1px solid var(--soft);
+  padding: 0.9rem var(--gut);
+  border-top: 1px solid var(--soft);
   transition: background 0.12s linear, color 0.12s linear;
 }
 
@@ -239,27 +263,24 @@ a { color: inherit; }
   color: var(--acc-ink);
 }
 
-.menu-btn { display: none; }
+.menu-btn { display: block; }
 
-@media (max-width: 800px) {
-  .menu-btn { display: block; }
+/* Notebook pequeno e acima: menu vira barra horizontal, hambúrguer some. */
+@media (min-width: 768px) {
+  .menu-btn { display: none; }
 
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    display: none;
-    flex-direction: column;
+    position: static;
+    display: flex;
+    flex-direction: row;
     align-items: stretch;
-    background: var(--bg);
-    border-bottom: 3px solid var(--rule);
+    background: transparent;
+    border-bottom: 0;
   }
-  .nav-links.open { display: flex; }
   .nav-links a {
-    border-left: 0;
-    border-top: 1px solid var(--soft);
-    padding: 0.9rem var(--gut);
+    border-top: 0;
+    border-left: 1px solid var(--soft);
+    padding: 0.7rem 0.85rem;
   }
 }
 
@@ -300,19 +321,20 @@ a { color: inherit; }
   color: var(--mut);
 }
 
+/* Mobile: métricas empilhadas, uma por linha. */
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   margin-top: clamp(1.5rem, 4vw, 2.25rem);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
 
 .metric {
-  padding: 0.85rem 1rem 0.85rem 0;
-  border-right: 1px solid var(--soft);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--soft);
 }
-.metric:last-child { border-right: 0; }
+.metric:last-child { border-bottom: 0; }
 
 .metric b {
   display: block;
@@ -334,14 +356,15 @@ a { color: inherit; }
   color: var(--faint);
 }
 
-@media (max-width: 760px) {
-  .metrics { grid-template-columns: 1fr; }
+/* Notebook pequeno e acima: três colunas lado a lado. */
+@media (min-width: 768px) {
+  .metrics { grid-template-columns: repeat(3, 1fr); }
   .metric {
-    border-right: 0;
-    border-bottom: 1px solid var(--soft);
-    padding-right: 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--soft);
+    padding: 0.85rem 1rem 0.85rem 0;
   }
-  .metric:last-child { border-bottom: 0; }
+  .metric:last-child { border-right: 0; }
 }
 
 .btn-strip {
@@ -399,9 +422,10 @@ a { color: inherit; }
 .legend a:hover { color: var(--ink); }
 
 /* ---------- Sobre ---------- */
+/* Mobile: uma coluna só, texto e fatos empilhados. */
 .cols {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr;
   gap: clamp(1.3rem, 4vw, 3rem);
   border-top: 1px solid var(--soft);
   padding-top: 1.2rem;
@@ -421,13 +445,18 @@ a { color: inherit; }
 }
 .cols > div > .lead + p { margin-top: 1rem; }
 
-.facts { display: flex; flex-direction: column; }
+.facts {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--soft);
+  padding-top: 0.75rem;
+}
 
 .fact {
   border-top: 1px solid var(--soft);
   padding-block: 0.75rem;
 }
-.fact:first-child { border-top: 0; padding-top: 0; }
+.fact:first-child { border-top: 0; padding-top: 0.75rem; }
 
 .fact b {
   display: block;
@@ -446,20 +475,26 @@ a { color: inherit; }
   color: var(--mut);
 }
 
-@media (max-width: 800px) {
-  .cols { grid-template-columns: 1fr; }
-  .facts { border-top: 1px solid var(--soft); padding-top: 0.75rem; }
-  .fact:first-child { padding-top: 0.75rem; border-top: 0; }
+/* Notebook pequeno e acima: texto e fatos lado a lado. */
+@media (min-width: 768px) {
+  .cols { grid-template-columns: 1.3fr 1fr; }
+  .facts { border-top: 0; padding-top: 0; }
+  .fact:first-child { border-top: 0; padding-top: 0; }
 }
 
 /* ---------- Tabela de stack ---------- */
+/* Mobile: a tabela deixa de ser tabela — a categoria vira título do grupo e
+   cada tecnologia ocupa uma linha com nível e medidor à direita. Rolagem
+   horizontal em tabela de leitura é pior do que reempilhar. */
 .table-scroll { overflow-x: auto; }
 
 .tb {
   width: 100%;
-  min-width: 460px;
   border-collapse: collapse;
 }
+
+.tb, .tb tbody, .tb tr, .tb td { display: block; }
+.tb thead { display: none; }
 
 .tb th {
   text-align: left;
@@ -475,10 +510,18 @@ a { color: inherit; }
 }
 
 .tb td {
-  padding: 0.5rem 0.6rem 0.5rem 0;
-  border-bottom: 1px solid var(--soft);
+  border-bottom: 0;
+  padding: 0.45rem 0;
   font-size: 0.92rem;
   vertical-align: middle;
+}
+
+.tb tr {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  column-gap: 0.7rem;
+  border-bottom: 1px solid var(--soft);
 }
 
 .tb td.cat {
@@ -490,9 +533,13 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-/* Colunas fixas: sem isso a tabela empurra "Tecnologia" para o meio da tela. */
-.tb th:nth-child(1), .tb td:nth-child(1) { width: 15.5rem; }
-.tb th:nth-child(3), .tb td:nth-child(3) { width: 10rem; }
+.tb td.cat:first-child {
+  grid-column: 1 / -1;
+  padding: 0.9rem 0 0.1rem;
+  color: var(--acc-text);
+  letter-spacing: 0.16em;
+}
+.tb td.cat:first-child:empty { display: none; }
 
 .tb tbody tr { transition: background 0.12s linear; }
 
@@ -505,10 +552,7 @@ a { color: inherit; }
 .tb tbody tr:focus-within td.cat { color: var(--acc-ink); }
 
 /* medidor de três células */
-.bar-cell {
-  width: 84px;
-  padding-right: 0 !important;
-}
+.bar-cell { width: auto; }
 
 .bar-cell .bar {
   display: flex;
@@ -517,7 +561,7 @@ a { color: inherit; }
 }
 .bar-cell .bar i {
   display: block;
-  width: 20px;
+  width: 16px;
   height: 8px;
   background: var(--soft);
 }
@@ -526,53 +570,48 @@ a { color: inherit; }
 .tb tbody tr:hover .bar i { background: rgba(17, 17, 17, 0.22); }
 .tb tbody tr:hover .bar i.on { background: #111111; }
 
-/* No celular a tabela deixa de ser tabela: a categoria vira título do grupo e
-   cada tecnologia ocupa uma linha com nível e medidor à direita. Rolagem
-   horizontal em tabela de leitura é pior do que reempilhar. */
-@media (max-width: 760px) {
-  .tb { min-width: 0; }
-  .tb, .tb tbody, .tb tr, .tb td { display: block; }
-  .tb thead { display: none; }
+/* Notebook pequeno e acima: volta a ser uma tabela de verdade, com
+   colunas fixas — sem isso a tabela empurra "Tecnologia" para o meio da tela. */
+@media (min-width: 768px) {
+  .tb, .tb tbody, .tb tr, .tb td { display: revert; }
+  .tb thead { display: table-header-group; }
+  .tb { min-width: 460px; }
 
-  .tb th:nth-child(1), .tb td:nth-child(1),
-  .tb th:nth-child(3), .tb td:nth-child(3) { width: auto; }
-
-  .tb tr {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    align-items: center;
-    column-gap: 0.7rem;
-    border-bottom: 1px solid var(--soft);
-  }
+  .tb th:nth-child(1), .tb td:nth-child(1) { width: 15.5rem; }
+  .tb th:nth-child(3), .tb td:nth-child(3) { width: 10rem; }
 
   .tb td {
-    border-bottom: 0;
-    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--soft);
+    padding: 0.5rem 0.6rem 0.5rem 0;
   }
 
   .tb td.cat:first-child {
-    grid-column: 1 / -1;
-    padding: 0.9rem 0 0.1rem;
-    color: var(--acc-text);
-    letter-spacing: 0.16em;
+    grid-column: auto;
+    padding: 0.5rem 0.6rem 0.5rem 0;
+    color: var(--faint);
+    letter-spacing: 0.1em;
   }
-  .tb td.cat:first-child:empty { display: none; }
 
-  .tb td.bar-cell { width: auto; }
-  .bar-cell .bar i { width: 16px; }
+  .bar-cell {
+    width: 84px;
+    padding-right: 0 !important;
+  }
+  .bar-cell .bar i { width: 20px; }
 }
 
 /* ---------- Projetos ---------- */
-/* Matriz 2×2 no desktop: card largo lê melhor que quatro colunas apertadas. */
+/* Mobile: um card por linha. */
 .proj-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   border-top: 1px solid var(--rule);
   border-left: 1px solid var(--soft);
 }
 
-@media (max-width: 720px) {
-  .proj-grid { grid-template-columns: 1fr; }
+/* Notebook pequeno e acima: matriz 2×2 — card largo lê melhor que quatro
+   colunas apertadas. */
+@media (min-width: 768px) {
+  .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .proj {
@@ -633,8 +672,8 @@ a { color: inherit; }
 
 .exp-row {
   display: grid;
-  grid-template-columns: 8.5rem 1fr;
-  gap: 1.2rem;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
   padding-block: 1rem;
   border-bottom: 1px solid var(--soft);
 }
@@ -668,8 +707,9 @@ a { color: inherit; }
   margin-top: 0.5rem;
 }
 
-@media (max-width: 700px) {
-  .exp-row { grid-template-columns: 1fr; gap: 0.25rem; }
+/* Notebook pequeno e acima: data numa coluna fixa ao lado do conteúdo. */
+@media (min-width: 768px) {
+  .exp-row { grid-template-columns: 8.5rem 1fr; gap: 1.2rem; }
 }
 
 /* ---------- Formação (template) ---------- */
@@ -677,7 +717,7 @@ a { color: inherit; }
 
 .edu-row {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   gap: 1rem;
   align-items: baseline;
   padding-block: 0.65rem;
@@ -691,8 +731,9 @@ a { color: inherit; }
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 600px) {
-  .edu-row { grid-template-columns: 1fr auto; }
+/* Notebook pequeno e acima: tipo e ano em colunas separadas. */
+@media (min-width: 768px) {
+  .edu-row { grid-template-columns: 1fr auto auto; }
 }
 
 /* ---------- Contato ---------- */
@@ -704,12 +745,12 @@ a { color: inherit; }
 
 .contact-cell {
   padding: 1.1rem;
-  border-right: 1px solid var(--soft);
+  border-bottom: 1px solid var(--soft);
   text-decoration: none;
   color: var(--ink);
   transition: background 0.12s linear, color 0.12s linear;
 }
-.contact-cell:last-child { border-right: 0; }
+.contact-cell:last-child { border-bottom: 0; }
 
 .contact-cell:hover,
 .contact-cell:focus-visible {
@@ -732,12 +773,25 @@ a { color: inherit; }
   word-break: break-word;
 }
 
-@media (max-width: 680px) {
+/* Notebook pequeno e acima: células lado a lado, divisória vertical. */
+@media (min-width: 768px) {
   .contact-cell {
-    border-right: 0;
-    border-bottom: 1px solid var(--soft);
+    border-bottom: 0;
+    border-right: 1px solid var(--soft);
   }
-  .contact-cell:last-child { border-bottom: 0; }
+  .contact-cell:last-child { border-right: 0; }
+}
+
+/* =============================================================================
+   MONITORES MAIORES
+   Da metade em diante (notebook pequeno, 768px) a grade já assumiu seu
+   layout final; aqui só sobra respiro extra onde a tela larga deixa os
+   cards e a tabela apertados perto do texto vizinho.
+   ============================================================================= */
+@media (min-width: 1024px) {
+  .proj { min-height: 220px; padding: 1.5rem; }
+  .cols { gap: clamp(3rem, 6vw, 5rem); }
+  .bar-cell .bar i { width: 24px; }
 }
 
 /* =============================================================================
