@@ -64,6 +64,7 @@
         <a href="#sobre">Sobre</a>
         <a href="#stack">Stack</a>
         <a href="#projetos">Projetos</a>
+        <a href="#formacao">Certificações</a>
         <a href="#contato">Contato</a>
       </nav>
       <button class="nav-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
@@ -78,34 +79,37 @@
 
   <!-- ===================== DOBRA ===================== -->
   <section class="hero pad" id="top">
-    <div class="index">
+    <div class="index reveal">
       <span>Engenheiro de dados · Python &amp; Spark · GCP &amp; Azure</span>
       <span>Portfólio 2026</span>
     </div>
 
-    <h1 class="display h1">Muito além de queries: entrego <mark>infraestrutura.</mark></h1>
+    <h1 class="display h1 reveal">Muito além de queries: entrego <mark>infraestrutura.</mark></h1>
 
-    <p class="hero-sub">
-      Não é só reescrever SQL: é orquestração, processamento distribuído e custo tratado
-      como requisito, do dado bruto ao ambiente pronto para análise.
+    <p class="hero-sub reveal">
+      Não é só reescrever SQL: é orquestração, processamento distribuído e custo tratado como
+      requisito, do dado bruto ao ambiente pronto para análise.
     </p>
+  </section>
 
+  <!-- ===================== FAIXA DE DESTAQUES ===================== -->
+  <section class="pad metrics-band rule-1" aria-label="Destaques">
     <div class="metrics" role="list">
-      <div class="metric" role="listitem">
+      <div class="metric reveal" role="listitem">
         <b>75%</b>
         <span>menos latência em consulta reescrita com joins, window functions e CTEs (20s → 5s)</span>
       </div>
-      <div class="metric" role="listitem">
+      <div class="metric reveal" role="listitem">
         <b>zero</b>
         <span>timeouts após trocar um fluxo serverless instável por microsserviço Docker + Flask</span>
       </div>
-      <div class="metric" role="listitem">
+      <div class="metric reveal" role="listitem">
         <b>2x</b>
         <span>Oracle Certified</span>
       </div>
     </div>
 
-    <div class="btn-strip mono">
+    <div class="btn-strip mono reveal">
       <a href="#projetos">Ver projetos</a>
       <a href="#contato">Contato</a>
       <a href="https://github.com/DevLeonardoK" target="_blank" rel="noopener">GitHub</a>
@@ -272,6 +276,28 @@
     </p>
   </section>
 
+  <!-- ===================== 04 CERTIFICAÇÕES ===================== -->
+  <!-- TODO: substitua os nomes exatos das certificações Oracle e o ano de cada uma. -->
+  <section class="sec pad rule-1" id="formacao">
+    <div class="sec-head">
+      <span class="mono">04</span>
+      <h2 class="display">Certificações</h2>
+    </div>
+
+    <div class="edu">
+      <div class="edu-row reveal">
+        <b>Certificação Oracle [nome exato]</b>
+        <span class="edu-kind mono">Certificação</span>
+        <span class="edu-year mono">[ano]</span>
+      </div>
+      <div class="edu-row reveal">
+        <b>Certificação Oracle [nome exato]</b>
+        <span class="edu-kind mono">Certificação</span>
+        <span class="edu-year mono">[ano]</span>
+      </div>
+    </div>
+  </section>
+
   <!--
     ===================== 04 EXPERIÊNCIA =====================
     Esta é a única seção que eu não pude preencher: cargo, empresa e período não estão
@@ -340,7 +366,7 @@
   <!-- ===================== CONTATO ===================== -->
   <section class="sec pad rule-1" id="contato">
     <div class="sec-head">
-      <span class="mono">04</span>
+      <span class="mono">05</span>
       <h2 class="display">Contato</h2>
     </div>
 
@@ -377,6 +403,8 @@
   </div>
 </footer>
 
+<script src="assets/vendor/gsap/gsap.min.js" defer></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
 </body>
 </html>
