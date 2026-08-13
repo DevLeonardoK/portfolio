@@ -80,8 +80,85 @@
 
   /* -------------------------------------------------- revelação no scroll -- */
   var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var temGSAP = !quieto && window.gsap && window.ScrollTrigger;
 
-  if (!quieto && "IntersectionObserver" in window) {
+  if (temGSAP) {
+    try {
+      animarComGSAP();
+    } catch (e) {
+      /* Se o GSAP falhar por qualquer motivo, cai no plano B abaixo. */
+      temGSAP = false;
+      Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function (el) {
+        el.style.opacity = "";
+        el.style.transform = "";
+      });
+      animarComIntersectionObserver();
+    }
+  } else if (!quieto && "IntersectionObserver" in window) {
+    animarComIntersectionObserver();
+  }
+
+  function animarComGSAP() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    var todos = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    var primeiraTela = todos.filter(function (el) {
+      return el.closest(".hero") || el.closest(".metrics-band");
+    });
+    var demais = todos.filter(function (el) { return primeiraTela.indexOf(el) === -1; });
+
+    /* A dobra não espera scroll: entra assim que a página carrega. */
+    if (primeiraTela.length) {
+      gsap.set(primeiraTela, { opacity: 0, y: 18 });
+      gsap.to(primeiraTela, {
+        opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.1, delay: 0.1
+      });
+    }
+
+    /* O resto entra em cascata conforme cruza a viewport, uma vez só. */
+    demais.forEach(function (el, i) {
+      gsap.set(el, { opacity: 0, y: 16 });
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        once: true,
+        onEnter: function () {
+          gsap.to(el, {
+            opacity: 1, y: 0, duration: 0.55, ease: "power2.out", delay: (i % 4) * 0.05
+          });
+        }
+      });
+    });
+
+    /* Barras de nível da stack: preenchem da esquerda para a direita. */
+    Array.prototype.forEach.call(document.querySelectorAll(".bar-cell"), function (cel) {
+      var acesas = cel.querySelectorAll(".bar i.on");
+      if (!acesas.length) return;
+      gsap.set(acesas, { scaleX: 0, transformOrigin: "left center" });
+      ScrollTrigger.create({
+        trigger: cel,
+        start: "top 95%",
+        once: true,
+        onEnter: function () {
+          gsap.to(acesas, { scaleX: 1, duration: 0.4, stagger: 0.08, ease: "power1.out" });
+        }
+      });
+    });
+
+    /* Rede de segurança: se algo travar, o conteúdo aparece de todo jeito. */
+    window.setTimeout(function () {
+      gsap.set(".reveal", { clearProps: "opacity,transform" });
+      Array.prototype.forEach.call(document.querySelectorAll(".bar-cell .bar i.on"), function (el) {
+        el.style.transform = "";
+      });
+    }, 4000);
+
+    window.addEventListener("beforeprint", function () {
+      gsap.set(".reveal", { clearProps: "opacity,transform" });
+    });
+  }
+
+  function animarComIntersectionObserver() {
     var alvos = document.querySelectorAll(".reveal");
     var alturaTela = window.innerHeight;
 
