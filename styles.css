@@ -452,114 +452,25 @@ a { color: inherit; }
   .fact:first-child { padding-top: 0.75rem; border-top: 0; }
 }
 
-/* ---------- Tabela de stack ---------- */
-.table-scroll { overflow-x: auto; }
-
-.tb {
-  width: 100%;
-  min-width: 460px;
-  border-collapse: collapse;
+/* ---------- Stack, por área ---------- */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.3rem;
 }
 
-.tb th {
-  text-align: left;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
+@media (max-width: 640px) {
+  .stack-grid { grid-template-columns: 1fr; }
+}
+
+.stack-cat {
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--faint);
-  font-weight: 400;
-  padding: 0.45rem 0.6rem 0.45rem 0;
-  border-bottom: 1px solid var(--rule);
-  white-space: nowrap;
-}
-
-.tb td {
-  padding: 0.5rem 0.6rem 0.5rem 0;
-  border-bottom: 1px solid var(--soft);
-  font-size: 0.92rem;
-  vertical-align: middle;
-}
-
-.tb td.cat {
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--faint);
-  white-space: nowrap;
-}
-
-/* Colunas fixas: sem isso a tabela empurra "Tecnologia" para o meio da tela. */
-.tb th:nth-child(1), .tb td:nth-child(1) { width: 15.5rem; }
-.tb th:nth-child(3), .tb td:nth-child(3) { width: 10rem; }
-
-.tb tbody tr { transition: background 0.12s linear; }
-
-.tb tbody tr:hover td,
-.tb tbody tr:focus-within td {
-  background: var(--acc);
-  color: var(--acc-ink);
-}
-.tb tbody tr:hover td.cat,
-.tb tbody tr:focus-within td.cat { color: var(--acc-ink); }
-
-/* medidor de três células */
-.bar-cell {
-  width: 84px;
-  padding-right: 0 !important;
-}
-
-.bar-cell .bar {
-  display: flex;
-  gap: 2px;
-  justify-content: flex-end;
-}
-.bar-cell .bar i {
-  display: block;
-  width: 20px;
-  height: 8px;
-  background: var(--soft);
-}
-.bar-cell .bar i.on { background: var(--rule); }
-
-.tb tbody tr:hover .bar i { background: rgba(17, 17, 17, 0.22); }
-.tb tbody tr:hover .bar i.on { background: #111111; }
-
-/* No celular a tabela deixa de ser tabela: a categoria vira título do grupo e
-   cada tecnologia ocupa uma linha com nível e medidor à direita. Rolagem
-   horizontal em tabela de leitura é pior do que reempilhar. */
-@media (max-width: 760px) {
-  .tb { min-width: 0; }
-  .tb, .tb tbody, .tb tr, .tb td { display: block; }
-  .tb thead { display: none; }
-
-  .tb th:nth-child(1), .tb td:nth-child(1),
-  .tb th:nth-child(3), .tb td:nth-child(3) { width: auto; }
-
-  .tb tr {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    align-items: center;
-    column-gap: 0.7rem;
-    border-bottom: 1px solid var(--soft);
-  }
-
-  .tb td {
-    border-bottom: 0;
-    padding: 0.45rem 0;
-  }
-
-  .tb td.cat:first-child {
-    grid-column: 1 / -1;
-    padding: 0.9rem 0 0.1rem;
-    color: var(--acc-text);
-    letter-spacing: 0.16em;
-  }
-  .tb td.cat:first-child:empty { display: none; }
-
-  .tb td.bar-cell { width: auto; }
-  .bar-cell .bar i { width: 16px; }
+  color: var(--acc-text);
+  margin-bottom: 0.55rem;
 }
 
 /* ---------- Projetos ---------- */
