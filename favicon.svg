@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LK">
+  <rect width="64" height="64" fill="#111111"/>
+  <!-- L -->
+  <rect x="11" y="14" width="7" height="30" fill="#F2F0EA"/>
+  <rect x="11" y="37" width="17" height="7" fill="#F2F0EA"/>
+  <!-- K -->
+  <rect x="36" y="14" width="7" height="30" fill="#F2F0EA"/>
+  <polygon points="43,33 53,14 60,14 50,33" fill="#F2F0EA"/>
+  <polygon points="50,31 60,44 53,44 43,31" fill="#F2F0EA"/>
+  <!-- faixa mostarda -->
+  <rect x="0" y="52" width="64" height="12" fill="#D19A00"/>
+</svg>

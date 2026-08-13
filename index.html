@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leonardo Kremer — Engenheiro de Dados</title>
+<meta name="description" content="Engenheiro de dados focado em transformar processos custosos em pipelines enxutos e de alta performance. Python, Spark, Airflow, Kafka, GCP e Azure.">
+<meta name="author" content="Leonardo Kremer">
+<meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leonardo Kremer — Engenheiro de Dados">
+<meta property="og:description" content="Transformo processos custosos em pipelines enxutos. Python, Spark, Airflow, Kafka, GCP e Azure.">
+<meta property="og:locale" content="pt_BR">
+<!-- TODO: quando o site estiver publicado, preencha as duas linhas abaixo com a URL final
+     (ex.: https://devleonardok.github.io/portfolio/) e uma imagem 1200x630 em assets/.
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+-->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" href="assets/fonts/archivo-narrow-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<!-- Aplica o tema salvo antes da primeira pintura, para não piscar. -->
+<script>
+  try {
+    var t = localStorage.getItem("tema");
+    if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="pad nav-in">
+    <a class="brand" href="#top">Leonardo Kremer</a>
+
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-links" aria-label="Seções">
+        <a href="#sobre">Sobre</a>
+        <a href="#stack">Stack</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="nav-btn" id="theme-btn" type="button" aria-label="Alternar tema claro e escuro">
+        <span id="theme-label">Tema</span>
+      </button>
+      <button class="nav-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ===================== DOBRA ===================== -->
+  <section class="hero pad" id="top">
+    <div class="index">
+      <span>Engenheiro de dados · Python &amp; Spark · GCP &amp; Azure</span>
+      <span>Portfólio 2026</span>
+    </div>
+
+    <h1 class="display h1">Transformo processos custosos em pipelines <mark>enxutos.</mark></h1>
+
+    <p class="hero-sub">
+      Conecto sistemas, APIs e bancos de dados a ambientes de storage prontos para análise —
+      com orquestração, processamento distribuído e custo tratado como requisito.
+    </p>
+
+    <div class="metrics" role="list">
+      <div class="metric" role="listitem">
+        <b>75%</b>
+        <span>menos latência em consulta reescrita com joins, window functions e CTEs (20s → 5s)</span>
+      </div>
+      <div class="metric" role="listitem">
+        <b>zero</b>
+        <span>timeouts após trocar um fluxo serverless instável por microsserviço Docker + Flask</span>
+      </div>
+      <div class="metric" role="listitem">
+        <b>2x</b>
+        <span>Oracle Certified</span>
+      </div>
+    </div>
+
+    <div class="btn-strip mono">
+      <a href="#projetos">Ver projetos</a>
+      <a href="#contato">Contato</a>
+      <a href="https://github.com/DevLeonardoK" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <!-- ===================== 01 SOBRE ===================== -->
+  <section class="sec pad rule-3" id="sobre">
+    <div class="sec-head">
+      <span class="mono">01</span>
+      <h2 class="display">Sobre</h2>
+    </div>
+
+    <div class="cols">
+      <div class="reveal">
+        <p class="display lead">Processos custosos viram pipelines enxutos e de alta performance.</p>
+        <p>
+          Sou engenheiro de dados. Meu trabalho começa onde o dado nasce — um sistema, uma API, um banco — e
+          termina numa camada pronta para análise, com schema definido, teste de qualidade e agendamento
+          confiável no meio do caminho.
+        </p>
+        <p>
+          Nos projetos abertos aqui embaixo eu monto a infraestrutura inteira do zero em containers: Airflow
+          orquestrando, Spark processando em cluster, object storage no papel de data lake e a camada final
+          servida em BigQuery ou Postgres. A decisão de rodar o compute local e usar a nuvem como destino é
+          deliberada: o valor está em dominar como as peças se conectam, não em pagar hora de cluster gerenciado.
+        </p>
+      </div>
+
+      <div class="facts">
+        <div class="fact reveal">
+          <b>Latência</b>
+          <span>75% de redução no tempo de consulta (20s → 5s) reescrevendo o SQL com joins, window functions e CTEs.</span>
+        </div>
+        <div class="fact reveal">
+          <b>Estabilidade</b>
+          <span>Fluxo serverless instável substituído por um microsserviço Docker + Flask: 20s → 1–5s, sem timeouts.</span>
+        </div>
+        <div class="fact reveal">
+          <b>Arquitetura</b>
+          <span>Pipeline ponta a ponta na arquitetura Medallion: Kafka → Spark → GCS → BigQuery, orquestrado com Airflow.</span>
+        </div>
+        <div class="fact reveal">
+          <b>Base</b>
+          <span>Brasil, remoto. Aberto a propostas em engenharia de dados e plataforma.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 STACK ===================== -->
+  <!--
+    NOTA: nível é auto-declarado. Eu inferi cada linha a partir da evidência pública
+    (bio do GitHub + os projetos deste portfólio). Ajuste livremente:
+    Avançado | Intermediário | Básico  →  troque o texto E o data-nivel (3, 2 ou 1).
+  -->
+  <section class="sec pad rule-1" id="stack">
+    <div class="sec-head">
+      <span class="mono">02</span>
+      <h2 class="display">Stack &amp; nível</h2>
+    </div>
+
+    <div class="table-scroll">
+      <table class="tb">
+        <caption class="sr-only">Tecnologias por categoria e nível de domínio</caption>
+        <thead>
+          <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Tecnologia</th>
+            <th scope="col">Nível</th>
+            <th scope="col"><span class="sr-only">Escala</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="cat">Linguagens &amp; processamento</td><td>Python</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>PySpark / Apache Spark</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>SQL</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>pandas</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+
+          <tr><td class="cat">Orquestração &amp; streaming</td><td>Apache Airflow</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>Docker / Docker Compose</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>Apache Kafka (KRaft)</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+
+          <tr><td class="cat">Nuvem</td><td>Google Cloud (GCS · BigQuery)</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>Azure</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+          <tr><td class="cat"></td><td>AWS</td><td class="cat">Básico</td><td class="bar-cell" data-nivel="1"><span class="bar" aria-hidden="true"><i class="on"></i><i></i><i></i></span></td></tr>
+          <tr><td class="cat"></td><td>Oracle Cloud (OCI)</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+
+          <tr><td class="cat">Dados &amp; storage</td><td>Arquitetura Medallion</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>PostgreSQL</td><td class="cat">Avançado</td><td class="bar-cell" data-nivel="3"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></td></tr>
+          <tr><td class="cat"></td><td>Databricks</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+          <tr><td class="cat"></td><td>MinIO / S3</td><td class="cat">Intermediário</td><td class="bar-cell" data-nivel="2"><span class="bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="legend mono">Escala de três posições: básico · intermediário · avançado</p>
+  </section>
+
+  <!-- ===================== 03 PROJETOS ===================== -->
+  <section class="sec pad rule-1" id="projetos">
+    <div class="sec-head">
+      <span class="mono">03</span>
+      <h2 class="display">Projetos</h2>
+    </div>
+
+    <div class="proj-grid">
+
+      <a class="proj reveal" href="https://github.com/DevLeonardoK/kafka-market-data-platform" target="_blank" rel="noopener">
+        <span class="proj-n mono">01 / Streaming</span>
+        <h3 class="display">Kafka Market Data Platform</h3>
+        <p>
+          Kafka em modo KRaft — um controller e três brokers, nove partições — alimenta três jobs Spark
+          Structured Streaming encadeados que levam a negociação crua até uma tabela no BigQuery,
+          camada por camada.
+        </p>
+        <ul class="tags mono">
+          <li>Kafka KRaft</li><li>Spark Streaming</li><li>Python</li><li>GCS</li><li>BigQuery</li>
+        </ul>
+        <span class="proj-go mono">Repositório <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/DevLeonardoK/crypto-price-medallion-gcp-airflow" target="_blank" rel="noopener">
+        <span class="proj-n mono">02 / Reconciliação</span>
+        <h3 class="display">Crypto Price Medallion</h3>
+        <p>
+          Consolida o preço à vista de BTC, ETH e SOL em três APIs concorrentes — CoinGecko, CoinCap e
+          Binance — e reconcilia as fontes na camada gold, calculando preço consolidado e o spread
+          percentual entre elas.
+        </p>
+        <ul class="tags mono">
+          <li>Airflow</li><li>Spark</li><li>Python</li><li>GCS</li><li>BigQuery</li>
+        </ul>
+        <span class="proj-go mono">Repositório <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/DevLeonardoK/house-sales-airflow-local-pipeline" target="_blank" rel="noopener">
+        <span class="proj-n mono">03 / Data lake local</span>
+        <h3 class="display">House Sales — Home Lab</h3>
+        <p>
+          Data lake inteiro conteinerizado na máquina local: Airflow orquestra, Spark processa em cluster,
+          MinIO faz o papel de object storage compatível com S3 e o Postgres serve a camada gold.
+        </p>
+        <ul class="tags mono">
+          <li>Airflow 3.2</li><li>Spark 4.0</li><li>MinIO</li><li>PostgreSQL 16</li><li>Redis</li>
+        </ul>
+        <span class="proj-go mono">Repositório <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/DevLeonardoK/airflow-openweather-etl" target="_blank" rel="noopener">
+        <span class="proj-n mono">04 / ETL batch</span>
+        <h3 class="display">Airflow OpenWeather ETL</h3>
+        <p>
+          O ciclo mais comum de um pipeline, feito com rigor: extrai o clima de Novo Hamburgo da OpenWeather
+          API a cada hora, normaliza os campos aninhados com pandas e persiste no PostgreSQL — com retry e
+          fuso tratado.
+        </p>
+        <ul class="tags mono">
+          <li>Airflow Celery</li><li>Python</li><li>pandas</li><li>PostgreSQL</li><li>Docker</li>
+        </ul>
+        <span class="proj-go mono">Repositório <span aria-hidden="true">→</span></span>
+      </a>
+
+    </div>
+
+    <p class="legend mono">
+      <a href="https://github.com/DevLeonardoK?tab=repositories" target="_blank" rel="noopener">Todos os repositórios no GitHub <span aria-hidden="true">→</span></a>
+    </p>
+  </section>
+
+  <!--
+    ===================== 04 EXPERIÊNCIA =====================
+    Esta é a única seção que eu não pude preencher: cargo, empresa e período não estão
+    públicos no seu GitHub. Descomente o bloco e substitua os campos entre colchetes.
+    Mantenha a ordem cronológica reversa (mais recente primeiro).
+
+  <section class="sec pad rule-1" id="experiencia">
+    <div class="sec-head">
+      <span class="mono">04</span>
+      <h2 class="display">Experiência</h2>
+    </div>
+
+    <div class="exp">
+      <article class="exp-row reveal">
+        <div class="exp-when mono">[2024] — atual</div>
+        <div>
+          <h3 class="display">[Cargo]</h3>
+          <p class="exp-org">[Empresa] · [cidade ou remoto]</p>
+          <p>[Duas ou três linhas sobre o que você constrói e mantém ali, de preferência com um resultado medido.]</p>
+          <p class="exp-stack mono">[Python · SQL · Spark · Airflow · GCP]</p>
+        </div>
+      </article>
+
+      <article class="exp-row reveal">
+        <div class="exp-when mono">[2022] — [2024]</div>
+        <div>
+          <h3 class="display">[Cargo anterior]</h3>
+          <p class="exp-org">[Empresa]</p>
+          <p>[O que você entregou.]</p>
+          <p class="exp-stack mono">[Stack]</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+    ===================== 05 FORMAÇÃO & CERTIFICAÇÕES =====================
+    Seu README diz "2x Oracle Certified" mas não diz quais. Preencha os nomes exatos
+    e o ano, e acrescente a graduação.
+
+  <section class="sec pad rule-1" id="formacao">
+    <div class="sec-head">
+      <span class="mono">05</span>
+      <h2 class="display">Formação</h2>
+    </div>
+
+    <div class="edu">
+      <div class="edu-row reveal">
+        <b>[Nome exato da certificação Oracle]</b>
+        <span class="edu-kind mono">Certificação</span>
+        <span class="edu-year mono">[ano]</span>
+      </div>
+      <div class="edu-row reveal">
+        <b>[Nome exato da segunda certificação Oracle]</b>
+        <span class="edu-kind mono">Certificação</span>
+        <span class="edu-year mono">[ano]</span>
+      </div>
+      <div class="edu-row reveal">
+        <b>[Curso]</b>
+        <span class="edu-kind mono">Graduação</span>
+        <span class="edu-year mono">[ano]</span>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ===================== CONTATO ===================== -->
+  <section class="sec pad rule-1" id="contato">
+    <div class="sec-head">
+      <span class="mono">04</span>
+      <h2 class="display">Contato</h2>
+    </div>
+
+    <div class="contact">
+      <a class="contact-cell" href="mailto:devleonardok@gmail.com">
+        <span class="mono">E-mail</span>
+        <b>devleonardok@gmail.com</b>
+      </a>
+      <a class="contact-cell" href="https://www.linkedin.com/in/devleonardok" target="_blank" rel="noopener">
+        <span class="mono">LinkedIn</span>
+        <b>in/devleonardok</b>
+      </a>
+      <a class="contact-cell" href="https://github.com/DevLeonardoK" target="_blank" rel="noopener">
+        <span class="mono">GitHub</span>
+        <b>DevLeonardoK</b>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="pad">
+    <p class="display foot-mark">Vamos<br>trabalhar<em>.</em></p>
+    <div class="btn-strip foot-strip mono">
+      <a href="mailto:devleonardok@gmail.com">E-mail</a>
+      <a href="https://www.linkedin.com/in/devleonardok" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/DevLeonardoK" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="foot-note mono">
+      <span>Leonardo Kremer · <span id="ano">2026</span></span>
+      <span>Feito à mão em HTML e CSS · Archivo Narrow (OFL)</span>
+    </p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
