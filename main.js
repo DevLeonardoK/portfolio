@@ -105,7 +105,7 @@
 
     var todos = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
     var primeiraTela = todos.filter(function (el) {
-      return el.closest(".hero") || el.closest(".metrics-band");
+      return el.closest(".hero");
     });
     var demais = todos.filter(function (el) { return primeiraTela.indexOf(el) === -1; });
 
